@@ -7,6 +7,7 @@ const args = require('yargs').argv
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyFilePlugin = require("copy-webpack-plugin")
 
 const env = args.envFile
 if (env) {
@@ -24,6 +25,15 @@ const plugins = [
     template: './src/index.html',
     chunks: ['main'],
     inject: 'body',
+  }),
+  new CopyFilePlugin({
+    patterns: [
+      {
+        context: path.resolve(__dirname, "./public"),
+        from: path.resolve(__dirname, "./public/**/*"),
+        to: path.resolve(__dirname, "dist"),
+      },
+    ],
   }),
   new webpack.DefinePlugin({
     'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
