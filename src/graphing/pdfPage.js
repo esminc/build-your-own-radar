@@ -4,6 +4,10 @@ const addPdfCoverTitle = (title) => {
   d3.select('main #pdf-cover-page .pdf-title').text(title)
 }
 
+const addPdfCoverDescription = (description) => {
+  d3.select('main #pdf-cover-page .pdf-description').html(description)
+}
+
 const addRadarLinkInPdfView = () => {
   d3.select('#generated-radar-link').attr('href', window.location.href)
 }
@@ -15,4 +19,4 @@ const addQuadrantNameInPdfView = (order, quadrantName) => {
     .text(quadrantName)
 }
 
-module.exports = { addPdfCoverTitle, addQuadrantNameInPdfView, addRadarLinkInPdfView }
+module.exports = { addPdfCoverTitle, addPdfCoverDescription, addQuadrantNameInPdfView, addRadarLinkInPdfView }
