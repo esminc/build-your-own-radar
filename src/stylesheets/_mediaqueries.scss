@@ -1,7 +1,7 @@
 $screen-small: 360px;
 $screen-medium: 768px;
 $screen-large: 1024px;
-$screen-xlarge: 1280px;
+$screen-xlarge: 1140px;
 $screen-xxlarge: 1440px;
 $screen-xxxlarge: 1800px;
 
@@ -28,7 +28,7 @@ $screen-xxxlarge: 1800px;
 
 @mixin media-query-xlarge {
   @media screen and (min-width: $screen-xlarge) {
-    // Desktop - 1280px and above
+    // Desktop - 1140px and above
     @content;
   }
 }
