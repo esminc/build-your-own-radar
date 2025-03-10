@@ -30,7 +30,7 @@ const graphConfig = {
   rings: getRings(),
   quadrants: getQuadrants(),
   groupBlipAngles: [30, 35, 60, 80],
-  maxBlipsInRings: [8, 22, 17, 18],
+  maxBlipsInRings: [300, 22, 17, 18], // ring内の最大blip数
 }
 
 const uiConfig = {

@@ -17,7 +17,7 @@ const RingCalculator = function (numberOfRings, maxRadius) {
   }
 
   self.getRingRadius = function (ringIndex) {
-    const ratios = [0, 0.316, 0.652, 0.832, 1]
+    const ratios = [0, 0.516, 0.652, 0.832, 1] // ring のサイズの比率
     const radius = ratios[ringIndex] * maxRadius
     return radius || 0
   }
