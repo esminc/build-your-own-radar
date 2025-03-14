@@ -26,6 +26,7 @@ const { getGraphSize, graphConfig } = require('../graphing/config')
 const InvalidConfigError = require('../exceptions/invalidConfigError')
 const InvalidContentError = require('../exceptions/invalidContentError')
 const FileNotFoundError = require('../exceptions/fileNotFoundError')
+const { random } = require('lodash')
 const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   if (title.endsWith('.csv')) {
     title = title.substring(0, title.length - 4)
@@ -112,6 +113,7 @@ const plotRadarGraph = function (title, blips, currentRadarName, alternativeRada
         blip.isNew.toLowerCase() === 'true',
         blip.topic,
         blip.description,
+        random(1, 10, false), // TODO: Use real count
       )
       quadrants[currentQuadrant].add(blipObj)
     }

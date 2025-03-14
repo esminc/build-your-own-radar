@@ -204,10 +204,23 @@
           fill: $sapphire;
           stroke: none;
         }
+        @for $i from 1 through 10 {
+          &.first-#{$i} {
+            fill: color-mix(in srgb, $sapphire ($i * 5% + 50%), transparent);
+            stroke: none;
+          }
+        }
 
         &.second {
           fill: $turmeric;
           stroke: none;
+        }
+
+        @for $i from 1 through 10 {
+          &.second-#{$i} {
+            fill: color-mix(in srgb, $turmeric ($i * 5% + 50%), transparent);
+            stroke: none;
+          }
         }
 
         &.third {
@@ -215,9 +228,23 @@
           stroke: none;
         }
 
+        @for $i from 1 through 10 {
+          &.third-#{$i} {
+            fill: color-mix(in srgb, $jade ($i * 5% + 50%), transparent);
+            stroke: none;
+          }
+        }
+
         &.fourth {
           fill: $flamingo;
           stroke: none;
+        }
+
+        @for $i from 1 through 10 {
+          &.fourth-#{$i} {
+            fill: color-mix(in srgb, $flamingo ($i * 5% + 50%), transparent);
+            stroke: none;
+          }
         }
       }
 
