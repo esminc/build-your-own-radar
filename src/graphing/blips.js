@@ -12,7 +12,7 @@ const _ = {
 }
 
 const getRingRadius = function (ringIndex) {
-  const ratios = [0, 0.316, 0.652, 0.832, 0.992]
+  const ratios = [0, 0.618, 0.722, 0.862, 0.992]
   const radius = ratios[ringIndex] * graphConfig.quadrantWidth
   return radius || 0
 }
