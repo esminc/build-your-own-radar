@@ -12,7 +12,7 @@ const _ = {
 }
 
 const getRingRadius = function (ringIndex) {
-  const ratios = [0, 0.316, 0.652, 0.832, 0.992]
+  const ratios = [0, 0.618, 0.722, 0.862, 0.992]
   const radius = ratios[ringIndex] * graphConfig.quadrantWidth
   return radius || 0
 }
@@ -111,11 +111,11 @@ function blipAssistiveText(blip) {
     ? `\`${blip.ring().name()} ring, group of ${blip.blipText()}`
     : `${blip.ring().name()} ring, ${blip.name()}, ${blip.status()}.`
 }
-function addOuterCircle(parentSvg, order, scale = 1) {
+function addOuterCircle(parentSvg, blip, order, scale = 1) {
   parentSvg
     .append('path')
     .attr('opacity', '1')
-    .attr('class', order)
+    .attr('class', `${order}-${blip.count() || 10}`)
     .attr(
       'd',
       'M18 36C8.07 36 0 27.93 0 18S8.07 0 18 0c9.92 0 18 8.07 18 18S27.93 36 18 36zM18 3.14C9.81 3.14 3.14 9.81 3.14 18S9.81 32.86 18 32.86S32.86 26.19 32.86 18S26.19 3.14 18 3.14z',
@@ -192,13 +192,13 @@ function drawBlipCircle(group, blip, xValue, yValue, order) {
     .attr('r', '12')
     .attr('cx', '18')
     .attr('cy', '18')
-    .attr('class', order)
+    .attr('class', `${order}-${blip.count() || 10}`)
     .style('transform', `scale(${blip.scale || 1})`)
 }
 
 function newBlip(blip, xValue, yValue, order, group) {
   drawBlipCircle(group, blip, xValue, yValue, order)
-  addOuterCircle(group, order, blip.scale)
+  addOuterCircle(group, blip, order, blip.scale)
 }
 
 function movedInBlip(blip, xValue, yValue, order, group) {

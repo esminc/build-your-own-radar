@@ -120,6 +120,7 @@ const plotRadarGraph = function (title, blips, currentRadarName, alternativeRada
         blip.status,
         blip.topic,
         blip.description,
+        blip.count,
       )
       quadrants[currentQuadrant].add(blipObj)
     }
