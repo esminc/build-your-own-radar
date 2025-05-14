@@ -58,7 +58,7 @@ const InputSanitizer = function () {
     const status = statusIndex === -1 ? '' : blip[statusIndex]
     const ring = ringIndex === -1 ? '' : blip[ringIndex]
     const quadrant = quadrantIndex === -1 ? '' : blip[quadrantIndex]
-    const count = countIndex === -1 ? 1 : blip[countIndex]
+    const count = countIndex === -1 ? undefined : blip[countIndex]
 
     blip.description = sanitizeHtml(description, relaxedOptions)
     blip.name = sanitizeHtml(name, restrictedOptions)

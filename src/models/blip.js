@@ -13,7 +13,7 @@ const Blip = function (name, ring, isNew, status, topic, description, count) {
   }
 
   self.name = function () {
-    return count ? `${name} (${count})` : name
+    return name
   }
 
   self.id = function () {
