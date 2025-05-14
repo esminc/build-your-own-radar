@@ -69,11 +69,13 @@ function renderBlipDescription(blip, ring, quadrant, tip, groupBlipTooltipText) 
       .attr('id', `blip-description-${blip.id()}`)
       .html(blip.description())
 
-    blipItemDiv
-      .append('div')
-      .classed('blip-list__item-container__description', true)
-      .attr('id', `blip-count-${blip.id()}`)
-      .text(`プロジェクト数: ${blip.count()}`)
+    if (blip.count()) {
+      blipItemDiv
+        .append('div')
+        .classed('blip-list__item-container__description', true)
+        .attr('id', `blip-count-${blip.id()}`)
+        .text(`プロジェクト数: ${blip.count()}`)
+    }
   }
   const blipGraphItem = d3.select(`g a#blip-link-${removeAllSpaces(blip.id())}`)
   const mouseOver = function (e) {
