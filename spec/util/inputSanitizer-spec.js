@@ -108,6 +108,7 @@ describe('Input Santizer for Protected sheet', function () {
       quadrant: '',
       isNew: '',
       status: '',
+      count: 1,
     })
   })
 })

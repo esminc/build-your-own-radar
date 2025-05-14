@@ -36,6 +36,7 @@ const InputSanitizer = function () {
     blip.status = sanitizeHtml(blip.status, restrictedOptions)
     blip.ring = sanitizeHtml(blip.ring, restrictedOptions)
     blip.quadrant = sanitizeHtml(blip.quadrant, restrictedOptions)
+    blip.count = isNaN(Number(blip.count)) ? undefined : Number(blip.count)
 
     return blip
   }
@@ -49,6 +50,7 @@ const InputSanitizer = function () {
     const statusIndex = header.indexOf('status')
     const quadrantIndex = header.indexOf('quadrant')
     const ringIndex = header.indexOf('ring')
+    const countIndex = header.indexOf('count')
 
     const description = descriptionIndex === -1 ? '' : blip[descriptionIndex]
     const name = nameIndex === -1 ? '' : blip[nameIndex]
@@ -56,6 +58,7 @@ const InputSanitizer = function () {
     const status = statusIndex === -1 ? '' : blip[statusIndex]
     const ring = ringIndex === -1 ? '' : blip[ringIndex]
     const quadrant = quadrantIndex === -1 ? '' : blip[quadrantIndex]
+    const count = countIndex === -1 ? 1 : blip[countIndex]
 
     blip.description = sanitizeHtml(description, relaxedOptions)
     blip.name = sanitizeHtml(name, restrictedOptions)
@@ -63,6 +66,7 @@ const InputSanitizer = function () {
     blip.status = sanitizeHtml(status, restrictedOptions)
     blip.ring = sanitizeHtml(ring, restrictedOptions)
     blip.quadrant = sanitizeHtml(quadrant, restrictedOptions)
+    blip.count = isNaN(Number(count)) ? undefined : Number(count)
 
     return blip
   }
