@@ -263,7 +263,7 @@ const Factory = function () {
   var sheet
 
   self.build = function () {
-    sheet = CSVDocument('Technology+Radar.csv')
+    sheet = CSVDocument('Technology+Radar+vol.2.csv')
     sheet.init().build()
   }
 

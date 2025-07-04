@@ -12,7 +12,7 @@ const _ = {
 }
 
 const getRingRadius = function (ringIndex) {
-  const ratios = [0, 0.618, 0.722, 0.862, 0.992]
+  const ratios = [0, 0.68, 0.79, 0.896, 1]
   const radius = ratios[ringIndex] * graphConfig.quadrantWidth
   return radius || 0
 }
@@ -75,7 +75,7 @@ function avoidBoundaryCollision(x, y, adjustX, adjustY) {
 }
 
 function findBlipCoordinates(blip, minRadius, maxRadius, startAngle, allBlipCoordinatesInRing, quadrantOrder) {
-  const maxIterations = 200
+  const maxIterations = 2000
   const chance = new Chance(
     Math.PI *
       graphConfig.quadrantWidth *
