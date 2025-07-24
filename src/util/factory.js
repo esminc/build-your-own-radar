@@ -53,7 +53,14 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
       quadrants[blip.quadrant] = new Quadrant(blip.quadrant[0].toUpperCase() + blip.quadrant.slice(1))
     }
     quadrants[blip.quadrant].add(
-      new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description),
+      new Blip(
+        blip.name,
+        ringMap[blip.ring],
+        blip.isNew.toLowerCase() === 'true',
+        blip.status,
+        blip.topic,
+        blip.description,
+      ),
     )
   })
 
@@ -110,8 +117,10 @@ const plotRadarGraph = function (title, blips, currentRadarName, alternativeRada
         blip.name,
         ringMap[ring],
         blip.isNew.toLowerCase() === 'true',
+        blip.status,
         blip.topic,
         blip.description,
+        blip.count,
       )
       quadrants[currentQuadrant].add(blipObj)
     }
@@ -254,7 +263,7 @@ const Factory = function () {
   var sheet
 
   self.build = function () {
-    sheet = CSVDocument('Technology+Radar.csv')
+    sheet = CSVDocument('Technology+Radar+vol.2.csv')
     sheet.init().build()
   }
 

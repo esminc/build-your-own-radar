@@ -7,7 +7,7 @@ const InputSanitizer = function () {
   var relaxedOptions = {
     allowedTags: ['b', 'i', 'em', 'strong', 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'ul', 'br', 'p', 'u'],
     allowedAttributes: {
-      a: ['href'],
+      a: ['href', 'target', 'rel'],
     },
   }
 
@@ -33,8 +33,10 @@ const InputSanitizer = function () {
     blip.description = sanitizeHtml(blip.description, relaxedOptions)
     blip.name = sanitizeHtml(blip.name, restrictedOptions)
     blip.isNew = sanitizeHtml(blip.isNew, restrictedOptions)
+    blip.status = sanitizeHtml(blip.status, restrictedOptions)
     blip.ring = sanitizeHtml(blip.ring, restrictedOptions)
     blip.quadrant = sanitizeHtml(blip.quadrant, restrictedOptions)
+    blip.count = isNaN(Number(blip.count)) ? undefined : Number(blip.count)
 
     return blip
   }
@@ -45,20 +47,26 @@ const InputSanitizer = function () {
     const descriptionIndex = header.indexOf('description')
     const nameIndex = header.indexOf('name')
     const isNewIndex = header.indexOf('isNew')
+    const statusIndex = header.indexOf('status')
     const quadrantIndex = header.indexOf('quadrant')
     const ringIndex = header.indexOf('ring')
+    const countIndex = header.indexOf('count')
 
     const description = descriptionIndex === -1 ? '' : blip[descriptionIndex]
     const name = nameIndex === -1 ? '' : blip[nameIndex]
     const isNew = isNewIndex === -1 ? '' : blip[isNewIndex]
+    const status = statusIndex === -1 ? '' : blip[statusIndex]
     const ring = ringIndex === -1 ? '' : blip[ringIndex]
     const quadrant = quadrantIndex === -1 ? '' : blip[quadrantIndex]
+    const count = countIndex === -1 ? undefined : blip[countIndex]
 
     blip.description = sanitizeHtml(description, relaxedOptions)
     blip.name = sanitizeHtml(name, restrictedOptions)
     blip.isNew = sanitizeHtml(isNew, restrictedOptions)
+    blip.status = sanitizeHtml(status, restrictedOptions)
     blip.ring = sanitizeHtml(ring, restrictedOptions)
     blip.quadrant = sanitizeHtml(quadrant, restrictedOptions)
+    blip.count = isNaN(Number(count)) ? undefined : Number(count)
 
     return blip
   }

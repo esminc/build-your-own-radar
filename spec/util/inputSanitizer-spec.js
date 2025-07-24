@@ -1,3 +1,4 @@
+const { count } = require('yargs')
 const InputSanitizer = require('../../src/util/inputSanitizer')
 
 describe('InputSanitizer', function () {
@@ -107,6 +108,8 @@ describe('Input Santizer for Protected sheet', function () {
       ring: '',
       quadrant: '',
       isNew: '',
+      status: '',
+      count: undefined,
     })
   })
 })

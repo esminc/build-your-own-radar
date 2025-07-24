@@ -201,23 +201,51 @@
       rect,
       path {
         &.first {
-          fill: $sapphire;
+          fill: $sapphire-dark;
           stroke: none;
+        }
+
+        @for $i from 1 through 10 {
+          &.first-#{$i} {
+            fill: color-mix(in srgb, $sapphire ($i * 3% + 70%), transparent);
+            stroke: none;
+          }
         }
 
         &.second {
-          fill: $turmeric;
+          fill: $turmeric-dark;
           stroke: none;
+        }
+
+        @for $i from 1 through 10 {
+          &.second-#{$i} {
+            fill: color-mix(in srgb, $turmeric ($i * 3% + 70%), transparent);
+            stroke: none;
+          }
         }
 
         &.third {
-          fill: $jade;
+          fill: $jade-dark;
           stroke: none;
         }
 
+        @for $i from 1 through 10 {
+          &.third-#{$i} {
+            fill: color-mix(in srgb, $jade ($i * 3% + 70%), transparent);
+            stroke: none;
+          }
+        }
+
         &.fourth {
-          fill: $flamingo;
+          fill: $flamingo-dark;
           stroke: none;
+        }
+
+        @for $i from 1 through 10 {
+          &.fourth-#{$i} {
+            fill: color-mix(in srgb, $flamingo ($i * 3% + 70%), transparent);
+            stroke: none;
+          }
         }
       }
 
@@ -402,8 +430,8 @@
       top: calc($quadrantWidth * 2 + $quadrantsGap);
     }
 
-    img:nth-child(2) {
-      margin-left: 48px;
+    img:nth-child(n + 2) {
+      margin-left: 24px;
     }
   }
 
